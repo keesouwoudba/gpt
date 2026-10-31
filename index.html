@@ -1,0 +1,2357 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>ChatGPT: One of the Greatest Innovations of the Last 5 Years</title>
+
+    <!-- ═══════ Reveal.js Core CSS (no theme: custom light theme below) ═══════ -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css"
+    />
+
+    <!-- ═══════ Fonts: Calibri / Segoe UI first, Carlito = metric-compatible Calibri fallback ═══════ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /*
+       * ═══════════════════════════════════════════════════════
+       *  THEME VARIABLES (from the plan's design rules)
+       *  bg #F7F9FC · headings navy #12284C · accent teal #10A37F
+       *  coral #E4572E only for negatives · citations grey #5A6475
+       * ═══════════════════════════════════════════════════════
+       */
+      :root {
+        --color-bg: #f7f9fc;
+        --color-navy: #12284c;
+        --color-teal: #10a37f;
+        --color-teal-light: #e3f4ee;
+        --color-coral: #e4572e;
+        --color-coral-light: #fcebe5;
+        --color-grey: #5a6475;
+        --color-greyblue: #6b84a3;
+        --color-line: #dbe2ec;
+        --color-card: #ffffff;
+
+        --font-main: Calibri, Carlito, "Segoe UI", Helvetica, Arial, sans-serif;
+
+        /* 1280 × 720 canvas: 1 pt ≈ 1.333 px */
+        --fs-title: 52px; /* 39 pt */
+        --fs-body: 33px; /* 25 pt */
+        --fs-body-sm: 30px; /* 22.5 pt */
+        --fs-min: 27px; /* 20 pt — floor for all non-citation text */
+        --fs-cite: 19px; /* 14 pt */
+        --pad-x: 58px; /* 0.6 inch */
+      }
+
+      html,
+      body,
+      .reveal-viewport {
+        background: var(--color-bg);
+      }
+
+      .reveal {
+        font-family: var(--font-main);
+        font-size: var(--fs-body);
+        color: var(--color-navy);
+      }
+
+      .reveal .slides {
+        text-align: left;
+      }
+
+      .reveal .slides > section {
+        height: 100%;
+        padding: 0 !important;
+      }
+
+      /*
+       * ═══════════════════════════════════════════════════════
+       *  SLIDE FRAME — same three zones on every slide
+       *  title zone = top 15% · content = middle · citation = bottom 8%
+       * ═══════════════════════════════════════════════════════
+       */
+      .frame {
+        position: absolute;
+        inset: 0;
+        padding: 0 var(--pad-x);
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+      }
+
+      .title-zone {
+        flex: 0 0 108px;
+        display: flex;
+        align-items: flex-end;
+        gap: 0.4em;
+        padding-bottom: 10px;
+        box-sizing: border-box;
+      }
+
+      .content-zone {
+        flex: 1 1 auto;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .cite-zone {
+        flex: 0 0 58px;
+        display: flex;
+        align-items: center;
+        gap: 2em;
+        box-sizing: border-box;
+      }
+
+      /*
+       * ═══════════════════════════════════════════════════════
+       *  HEADINGS
+       * ═══════════════════════════════════════════════════════
+       */
+      .reveal h1,
+      .reveal h2,
+      .reveal h3 {
+        font-family: var(--font-main);
+        color: var(--color-navy);
+        text-transform: none;
+        letter-spacing: 0;
+        text-shadow: none;
+        margin: 0;
+        line-height: 1.12;
+      }
+
+      .reveal h2 {
+        font-size: var(--fs-title);
+        font-weight: 700;
+      }
+
+      .reveal h3 {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 0.3em;
+      }
+
+      .reveal p {
+        margin: 0;
+        line-height: 1.3;
+      }
+
+      .reveal strong {
+        font-weight: 700;
+      }
+
+      .reveal ul,
+      .reveal ol {
+        display: block;
+        margin: 0 0 0 1.05em;
+        padding: 0;
+      }
+
+      .reveal li {
+        line-height: 1.28;
+        margin-bottom: 0.32em;
+      }
+
+      .reveal ul li::marker {
+        color: var(--color-teal);
+      }
+
+      .reveal ol li::marker {
+        color: var(--color-teal);
+        font-weight: 700;
+      }
+
+      /*
+       * ═══════════════════════════════════════════════════════
+       *  CITATIONS (APA, 14 pt grey)
+       * ═══════════════════════════════════════════════════════
+       */
+      .cite {
+        font-size: var(--fs-cite);
+        color: var(--color-grey);
+        font-weight: 400;
+        font-style: normal;
+        white-space: nowrap;
+      }
+
+      /*
+       * ═══════════════════════════════════════════════════════
+       *  ICONS — one line-icon style throughout
+       * ═══════════════════════════════════════════════════════
+       */
+      .ico {
+        width: 1em;
+        height: 1em;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        flex: 0 0 auto;
+        vertical-align: middle;
+      }
+
+      .ico-teal {
+        color: var(--color-teal);
+      }
+      .ico-coral {
+        color: var(--color-coral);
+      }
+      .ico-grey {
+        color: var(--color-grey);
+      }
+
+      .icon-row {
+        display: flex;
+        gap: 0.4em;
+        text-align: center;
+      }
+
+      .icon-row figure {
+        margin: 0;
+        flex: 1 1 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .icon-row .ico-badge {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        background: var(--color-teal-light);
+        color: var(--color-teal);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 36px;
+      }
+
+      .icon-row figcaption {
+        font-size: var(--fs-min);
+        line-height: 1.1;
+      }
+
+      /*
+       * ═══════════════════════════════════════════════════════
+       *  IMAGES — reset Reveal defaults
+       * ═══════════════════════════════════════════════════════
+       */
+      .reveal section img {
+        border: none;
+        margin: 0;
+        box-shadow: none;
+        max-width: 100%;
+      }
+
+      .img-card {
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 6px 22px rgba(18, 40, 76, 0.12);
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .img-card img {
+        border-radius: 8px;
+        object-fit: contain;
+      }
+
+      /*
+       * ═══════════════════════════════════════════════════════
+       *  TWO-COLUMN LAYOUT
+       * ═══════════════════════════════════════════════════════
+       */
+      .row {
+        display: flex !important;
+        align-items: center;
+        gap: 48px;
+        width: 100%;
+      }
+
+      .row > * {
+        min-width: 0;
+      }
+
+      .divider-v {
+        align-self: stretch;
+        width: 2px;
+        background: var(--color-line);
+        flex: 0 0 2px;
+      }
+
+      /*
+       * ═══════════════════════════════════════════════════════
+       *  SHARED COMPONENTS
+       * ═══════════════════════════════════════════════════════
+       */
+      .banner {
+        border-radius: 10px;
+        padding: 14px 24px;
+        font-size: 33px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .banner-teal {
+        background: var(--color-teal);
+        color: #fff;
+      }
+
+      .banner-navy {
+        background: var(--color-navy);
+        color: #fff;
+      }
+
+      .banner-soft {
+        background: var(--color-teal-light);
+        color: var(--color-navy);
+        border-left: 8px solid var(--color-teal);
+        text-align: left;
+      }
+
+      .card {
+        background: var(--color-card);
+        border: 2px solid var(--color-line);
+        border-radius: 14px;
+        padding: 18px 24px;
+        box-sizing: border-box;
+      }
+
+      .teal {
+        color: var(--color-teal);
+      }
+      .coral {
+        color: var(--color-coral);
+      }
+      .grey {
+        color: var(--color-grey);
+      }
+
+      /* ═══════ SLIDE 1 — TITLE ═══════ */
+      .title-slide .frame {
+        padding-top: 70px;
+        padding-bottom: 60px;
+      }
+
+      .title-slide .row {
+        height: 100%;
+        align-items: stretch;
+      }
+
+      .title-slide .title-text {
+        flex: 1 1 65%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .title-slide h1 {
+        color: #fff;
+        font-size: 64px; /* 48 pt */
+        font-weight: 700;
+        line-height: 1.08;
+      }
+
+      .title-slide .subtitle {
+        color: var(--color-teal);
+        font-size: 33px;
+        margin-top: 24px;
+        font-weight: 700;
+      }
+
+      .title-slide .members {
+        list-style: none;
+        margin: 0;
+        color: #fff;
+        font-size: var(--fs-min);
+      }
+
+      .title-slide .members li {
+        margin: 0;
+        line-height: 1.35;
+      }
+
+      .title-slide .title-img {
+        flex: 0 0 35%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .title-slide .title-img img {
+        width: 360px;
+        height: 360px;
+        border-radius: 50%;
+        object-fit: cover;
+        background: #fff;
+        box-shadow: 0 0 0 10px rgba(16, 163, 127, 0.35);
+      }
+
+      /* ═══════ SLIDE 2 — HOOK ═══════ */
+      .big-number {
+        font-size: 116px;
+        font-weight: 700;
+        color: var(--color-teal);
+        line-height: 1;
+        letter-spacing: -1px;
+      }
+
+      .hook-left {
+        flex: 0 0 55%;
+      }
+
+      .hook-left .caption-1 {
+        font-size: 33px;
+        margin-top: 8px;
+      }
+
+      .hook-left .caption-2 {
+        font-size: var(--fs-min);
+        color: var(--color-grey);
+      }
+
+      .hook-left .img-card {
+        margin-top: 22px;
+        width: 330px;
+        height: 175px;
+      }
+
+      .hook-left .img-card img {
+        max-height: 155px;
+      }
+
+      .hook-right {
+        flex: 1 1 45%;
+      }
+
+      .hook-right ol li {
+        margin-bottom: 0.5em;
+      }
+
+      .title-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: var(--color-teal-light);
+        color: var(--color-teal);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 38px;
+        margin-bottom: 4px;
+      }
+
+      /* ═══════ SLIDE 3 — WHAT IS CHATGPT ═══════ */
+      .chips {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 26px;
+      }
+
+      .chip {
+        display: inline-block;
+        align-self: flex-start;
+        background: var(--color-teal);
+        color: #fff;
+        font-size: 43px; /* 32 pt */
+        font-weight: 400;
+        padding: 4px 22px;
+        border-radius: 999px;
+      }
+
+      .chip b {
+        font-weight: 700;
+      }
+
+      .grid-icons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px 14px;
+        text-align: center;
+        margin-bottom: 26px;
+      }
+
+      .grid-icons figure {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .grid-icons .ico-badge {
+        width: 84px;
+        height: 84px;
+        border-radius: 20px;
+        background: var(--color-teal-light);
+        color: var(--color-teal);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 46px;
+      }
+
+      .grid-icons figcaption {
+        font-size: var(--fs-min);
+      }
+
+      /* ═══════ SLIDE 4 — DEFINITION + EQUATION ═══════ */
+      .definition {
+        background: var(--color-teal-light);
+        border-left: 10px solid var(--color-teal);
+        border-radius: 0 12px 12px 0;
+        padding: 22px 30px;
+        font-size: 33px;
+        font-style: italic;
+        margin: 0 0 46px 0;
+        line-height: 1.3;
+      }
+
+      .equation {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .eq-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 232px;
+      }
+
+      .eq-box {
+        width: 100%;
+        height: 176px;
+        box-sizing: border-box;
+        background: #fff;
+        border: 3px solid var(--color-line);
+        border-radius: 22px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        text-align: center;
+        font-size: var(--fs-body-sm);
+        font-weight: 700;
+        line-height: 1.15;
+        padding: 0 12px;
+      }
+
+      .eq-box .ico {
+        font-size: 54px;
+        color: var(--color-teal);
+      }
+
+      .eq-box.result {
+        background: var(--color-teal);
+        border-color: var(--color-teal);
+        color: #fff;
+        font-size: 36px;
+      }
+
+      .eq-box.result .ico {
+        color: #fff;
+      }
+
+      .eq-op {
+        font-size: 64px;
+        font-weight: 700;
+        color: var(--color-grey);
+        height: 176px;
+        display: flex;
+        align-items: center;
+      }
+
+      .eq-label {
+        font-size: var(--fs-min);
+        color: var(--color-grey);
+      }
+
+      /* ═══════ SLIDE 5 — TRANSFORMER ═══════ */
+      .subhead {
+        font-size: 37px;
+        color: var(--color-teal);
+        font-weight: 700;
+        margin-bottom: 18px;
+      }
+
+      .cmp-table {
+        border-collapse: separate;
+        border-spacing: 0;
+        width: 100%;
+        font-size: 28px;
+        line-height: 1.18;
+      }
+
+      .reveal table.cmp-table th,
+      .reveal table.cmp-table td {
+        border: none;
+        padding: 10px 14px;
+        vertical-align: middle;
+        text-align: left;
+      }
+
+      .reveal table.cmp-table td {
+        border-bottom: 2px solid var(--color-line);
+        background: #fff;
+      }
+
+      .reveal table.cmp-table th {
+        color: #fff;
+        font-weight: 700;
+      }
+
+      .th-coral {
+        background: var(--color-coral);
+      }
+      .th-teal {
+        background: var(--color-teal);
+      }
+      .th-grey {
+        background: var(--color-grey);
+      }
+
+      .reveal table.cmp-table tr:first-child th:first-child {
+        border-top-left-radius: 10px;
+      }
+      .reveal table.cmp-table tr:first-child th:last-child {
+        border-top-right-radius: 10px;
+      }
+
+      .t5-left {
+        flex: 0 0 45%;
+      }
+
+      .t5-right {
+        flex: 1 1 55%;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .bands {
+        display: flex;
+        align-items: stretch;
+        gap: 6px;
+      }
+
+      .band {
+        flex: 1 1 0;
+        background: #fff;
+        border: 2px solid var(--color-line);
+        border-radius: 12px;
+        padding: 8px 8px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .band-title {
+        font-size: var(--fs-min);
+        font-weight: 700;
+        color: #fff;
+        background: var(--color-navy);
+        border-radius: 8px;
+        width: 100%;
+        text-align: center;
+        padding: 2px 0;
+      }
+
+      .band.process .band-title {
+        background: var(--color-teal);
+      }
+
+      .band .pill {
+        font-size: var(--fs-min);
+        line-height: 1.1;
+        text-align: center;
+      }
+
+      .band .down {
+        color: var(--color-grey);
+        font-size: 22px;
+        line-height: 1;
+      }
+
+      .band.process .pill {
+        flex: 1 1 auto;
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+        color: var(--color-teal);
+      }
+
+      .band-arrow {
+        align-self: center;
+        color: var(--color-grey);
+        font-size: 30px;
+      }
+
+      .paper-fig {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .paper-fig .img-card {
+        padding: 6px;
+      }
+
+      .paper-fig img {
+        height: 120px;
+        width: auto;
+      }
+
+      .t5-banner {
+        margin-top: 16px;
+      }
+
+      /* ═══════ SLIDE 6 — FROM INVENTION TO INNOVATION ═══════ */
+      .date-big {
+        font-size: 58px; /* 44 pt */
+        font-weight: 700;
+        color: var(--color-teal);
+        line-height: 1;
+        margin-bottom: 14px;
+      }
+
+      .t6-left {
+        flex: 0 0 50%;
+      }
+
+      .t6-left ul {
+        margin-bottom: 18px;
+      }
+
+      .t6-right {
+        flex: 1 1 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .t6-right .img-card img {
+        max-height: 330px;
+        width: 100%;
+      }
+
+      .img-caption {
+        font-size: var(--fs-min);
+        font-style: italic;
+        color: var(--color-grey);
+      }
+
+      /* ═══════ SLIDE 7 — CHATBOT COMPARISON ═══════ */
+      .t7-table {
+        font-size: 29px;
+      }
+
+      .reveal table.t7-table td.row-label {
+        font-size: var(--fs-min);
+        font-weight: 700;
+        color: var(--color-grey);
+        width: 170px;
+        background: transparent;
+      }
+
+      .reveal table.t7-table th {
+        text-align: center;
+        font-size: 31px;
+        padding: 10px 14px;
+      }
+
+      .reveal table.t7-table th .ico {
+        font-size: 38px;
+        display: block;
+        margin: 0 auto 2px;
+      }
+
+      .reveal table.t7-table th.th-empty {
+        background: transparent;
+      }
+
+      .reveal table.t7-table td.col-old {
+        color: #3d4757;
+        background: #f0f2f5;
+      }
+
+      .reveal table.t7-table td.col-new {
+        background: var(--color-teal-light);
+      }
+
+      .footnote {
+        font-size: var(--fs-min);
+        color: var(--color-grey);
+        margin-top: 12px;
+      }
+
+      /* ═══════ SLIDE 8 — TESTS 2 & 3 ═══════ */
+      .half-title {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 8px;
+      }
+
+      .tick {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: var(--color-teal);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        flex: 0 0 52px;
+      }
+
+      .tick .ico {
+        stroke-width: 3;
+      }
+
+      .t8-left {
+        flex: 0 0 58%;
+      }
+
+      .t8-right {
+        flex: 1 1 auto;
+        align-self: flex-start;
+      }
+
+      .num-mid {
+        font-size: 86px; /* 64 pt */
+        font-weight: 700;
+        color: var(--color-teal);
+        line-height: 1;
+      }
+
+      .t8-left .caption {
+        font-size: var(--fs-min);
+        color: var(--color-grey);
+        margin: 4px 0 18px;
+      }
+
+      .t8-left .icon-row {
+        gap: 4px;
+      }
+
+      .t8-left .icon-row figcaption {
+        letter-spacing: -0.2px;
+      }
+
+      .t8-left .cite {
+        display: block;
+        margin-top: 10px;
+      }
+
+      .t8-strip {
+        margin-top: 22px;
+        font-size: 33px;
+        font-weight: 400;
+      }
+
+      .t8-strip strong {
+        color: #7fe0c4;
+      }
+
+      /* ═══════ SLIDE 9 — TECHNOLOGY & ECONOMY ═══════ */
+      .t9-cards {
+        display: flex;
+        gap: 30px;
+        align-items: stretch;
+      }
+
+      .t9-cards .card {
+        flex: 1 1 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 34px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .card-head .ico {
+        font-size: 40px;
+        color: var(--color-teal);
+      }
+
+      .t9-cards li {
+        font-size: 29px;
+        line-height: 1.2;
+        margin-bottom: 0.28em;
+      }
+
+      .badge {
+        display: inline-block;
+        background: var(--color-teal);
+        color: #fff;
+        font-weight: 700;
+        border-radius: 8px;
+        padding: 0 10px;
+      }
+
+      .card .cite.card-cite {
+        margin-top: auto;
+        padding-top: 4px;
+      }
+
+      .timeline {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 26px;
+        padding: 0 10px;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 40px;
+        right: 40px;
+        top: 11px;
+        height: 4px;
+        background: var(--color-teal);
+        border-radius: 2px;
+      }
+
+      .tl-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 170px;
+        text-align: center;
+        font-size: var(--fs-min);
+        line-height: 1.1;
+      }
+
+      .tl-dot {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: #fff;
+        border: 5px solid var(--color-teal);
+        box-sizing: border-box;
+        margin-bottom: 6px;
+      }
+
+      .tl-item.hl .tl-dot {
+        background: var(--color-teal);
+      }
+
+      .tl-item b {
+        color: var(--color-teal);
+      }
+
+      /* ═══════ SLIDE 10 — SOCIETY & POLITICS ═══════ */
+      .t10-col {
+        flex: 1 1 0;
+        align-self: flex-start;
+      }
+
+      .col-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 34px;
+        font-weight: 700;
+        margin-bottom: 14px;
+      }
+
+      .col-head .ico {
+        font-size: 42px;
+        color: var(--color-teal);
+      }
+
+      .t10-col li {
+        font-size: 31px;
+        margin-bottom: 0.5em;
+      }
+
+      .mark-list {
+        list-style: none;
+        margin: 0 !important;
+      }
+
+      .mark-list li {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .mark-list li > .lead {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding-top: 4px;
+      }
+
+      .mark-list .ico {
+        font-size: 32px;
+        stroke-width: 3;
+      }
+
+      .flag {
+        width: 42px;
+        height: 28px;
+        border-radius: 3px;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+      }
+
+      .dot-teal {
+        flex: 0 0 14px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--color-teal);
+        margin: 10px 7px 0 4px;
+      }
+
+      .t10-img {
+        flex: 0 0 25%;
+      }
+
+      .t10-img .img-card img {
+        max-height: 330px;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      /* ═══════ SLIDE 11 — STAKEHOLDERS ═══════ */
+      .hub {
+        position: relative;
+        width: 100%;
+        height: 540px;
+      }
+
+      .hub svg.spokes {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .hub-center {
+        position: absolute;
+        left: 50%;
+        top: 290px;
+        width: 190px;
+        height: 190px;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        background: var(--color-teal);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 36px;
+        font-weight: 700;
+        box-shadow: 0 0 0 12px var(--color-teal-light);
+      }
+
+      .hub-center .ico {
+        font-size: 48px;
+        margin-bottom: 4px;
+      }
+
+      .node {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        width: 320px;
+        background: #fff;
+        border-radius: 14px;
+        border: 3px solid;
+        padding: 8px 14px;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 1.12;
+      }
+
+      .node b {
+        display: block;
+        font-size: 31px;
+      }
+
+      .node span {
+        display: block;
+        font-size: var(--fs-min);
+        color: var(--color-grey);
+      }
+
+      .node.make {
+        border-color: var(--color-navy);
+      }
+      .node.make b {
+        color: var(--color-navy);
+      }
+      .node.fund {
+        border-color: var(--color-teal);
+      }
+      .node.fund b {
+        color: var(--color-teal);
+      }
+      .node.decide {
+        border-color: var(--color-greyblue);
+      }
+      .node.decide b {
+        color: #3f5a7d;
+      }
+
+      .legend {
+        display: flex;
+        gap: 26px;
+        margin-left: auto;
+        margin-right: 70px;
+        font-size: var(--fs-min);
+      }
+
+      .legend span {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .legend i {
+        width: 22px;
+        height: 22px;
+        border-radius: 5px;
+        display: inline-block;
+      }
+
+      /* ═══════ SLIDE 12 — WINNERS & LOSERS ═══════ */
+      .wl-col {
+        flex: 1 1 0;
+        align-self: flex-start;
+      }
+
+      .wl-head {
+        font-size: 36px;
+        font-weight: 700;
+        color: #fff;
+        border-radius: 10px;
+        padding: 6px 18px;
+        margin-bottom: 14px;
+      }
+
+      .wl-head.win {
+        background: var(--color-teal);
+      }
+      .wl-head.lose {
+        background: var(--color-coral);
+      }
+
+      .wl-list {
+        list-style: none;
+        margin: 0 !important;
+      }
+
+      .wl-list li {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        font-size: 29px;
+        line-height: 1.2;
+        margin-bottom: 14px;
+      }
+
+      .wl-list .ico-badge {
+        width: 48px;
+        height: 48px;
+        flex: 0 0 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+      }
+
+      .win .ico-badge,
+      .wl-list.win .ico-badge {
+        background: var(--color-teal-light);
+        color: var(--color-teal);
+      }
+
+      .wl-list.lose .ico-badge {
+        background: var(--color-coral-light);
+        color: var(--color-coral);
+      }
+
+      .wl-banner {
+        margin-top: 10px;
+        background: var(--color-coral-light);
+        color: var(--color-navy);
+        border-left: 8px solid var(--color-coral);
+        text-align: left;
+      }
+
+      /* ═══════ SLIDE 13 — TOP-DOWN / BOTTOM-UP ═══════ */
+      .td-wrap {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+
+      .td-side {
+        flex: 1 1 0;
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+
+      .block-arrow {
+        flex: 0 0 120px;
+        height: 430px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 700;
+        font-size: 31px;
+        writing-mode: vertical-rl;
+        letter-spacing: 1px;
+      }
+
+      .block-arrow.down {
+        background: var(--color-navy);
+        clip-path: polygon(22% 0, 78% 0, 78% 72%, 100% 72%, 50% 100%, 0 72%, 22% 72%);
+        padding-bottom: 80px;
+        box-sizing: border-box;
+      }
+
+      .block-arrow.up {
+        background: var(--color-teal);
+        clip-path: polygon(50% 0, 100% 28%, 78% 28%, 78% 100%, 22% 100%, 22% 28%, 0 28%);
+        padding-top: 80px;
+        box-sizing: border-box;
+      }
+
+      .td-text h3 {
+        font-size: 36px;
+      }
+
+      .td-text li {
+        font-size: 29px;
+        line-height: 1.2;
+        margin-bottom: 0.45em;
+      }
+
+      .td-mid {
+        flex: 0 0 160px;
+        text-align: center;
+        font-size: 37px; /* 28 pt */
+        font-weight: 700;
+        line-height: 1.15;
+      }
+
+      .td-mid .ico {
+        font-size: 52px;
+        color: var(--color-teal);
+        display: block;
+        margin: 0 auto 8px;
+      }
+
+      /* ═══════ SLIDE 14 — VERDICT ═══════ */
+      .verdict-rows {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        margin-bottom: 26px;
+      }
+
+      .verdict-row {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        background: #fff;
+        border: 2px solid var(--color-line);
+        border-radius: 14px;
+        padding: 14px 24px;
+        font-size: 37px; /* 28 pt */
+      }
+
+      .verdict-row .tick {
+        width: 58px;
+        height: 58px;
+        flex: 0 0 58px;
+        font-size: 36px;
+      }
+
+      .verdict-row .cite {
+        margin-left: 8px;
+      }
+
+      .verdict-banner {
+        font-size: 43px; /* 32 pt */
+        padding: 18px 24px;
+      }
+
+      .verdict-note {
+        font-size: var(--fs-min);
+        color: var(--color-coral);
+        margin-top: 14px;
+        text-align: center;
+      }
+
+      .verdict-note span {
+        color: var(--color-navy);
+      }
+
+      /* ═══════ SLIDE 15 — QUESTIONS ═══════ */
+      .q-slide .content-zone {
+        align-items: center;
+        text-align: center;
+      }
+
+      .q-slide .img-card {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        padding: 0;
+        overflow: hidden;
+        margin-bottom: 30px;
+        box-shadow: 0 0 0 12px var(--color-teal-light);
+      }
+
+      .q-slide .img-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0;
+      }
+
+      .reveal .q-slide h2 {
+        font-size: 80px; /* 60 pt */
+      }
+
+      /* ═══════ SLIDE 16 — SUMMARY ═══════ */
+      .sum-left {
+        flex: 0 0 52%;
+      }
+
+      .sum-list {
+        list-style: none;
+        margin: 0 !important;
+      }
+
+      .sum-list li {
+        font-size: 33px;
+        margin-bottom: 26px;
+        padding-left: 22px;
+        border-left: 6px solid var(--color-teal);
+      }
+
+      .sum-list b {
+        color: var(--color-teal);
+        display: block;
+      }
+
+      .sum-right {
+        flex: 1 1 48%;
+      }
+
+      .path svg {
+        width: 100%;
+        height: auto;
+        overflow: visible;
+      }
+
+      .thanks {
+        font-size: 43px; /* 32 pt */
+        color: var(--color-teal);
+        font-weight: 700;
+        margin-top: 18px;
+      }
+
+      /* ═══════ SLIDE 17 — REFERENCES ═══════ */
+      .refs {
+        column-count: 2;
+        column-gap: 40px;
+        font-size: 14.5px; /* ~11 pt */
+        line-height: 1.32;
+      }
+
+      .refs p {
+        padding-left: 2em;
+        text-indent: -2em;
+        margin: 0 0 7px 0;
+        break-inside: avoid;
+      }
+
+      .refs a {
+        color: var(--color-teal);
+        word-break: break-all;
+        text-decoration: none;
+      }
+
+      /*
+       * ═══════════════════════════════════════════════════════
+       *  REVEAL UI — slide number bottom-right, minimal controls
+       * ═══════════════════════════════════════════════════════
+       */
+      .reveal .slide-number {
+        background: transparent;
+        color: var(--color-grey);
+        font-family: var(--font-main);
+        font-size: 18px;
+        right: 22px;
+        bottom: 18px;
+      }
+
+      .reveal .controls {
+        color: var(--color-teal);
+        opacity: 0.35;
+      }
+
+      .reveal .controls:hover {
+        opacity: 0.9;
+      }
+
+      /* Fragments: plain fade, only used on slides 5, 8 and 14 */
+      .reveal .fragment.fade-up {
+        transform: translate(0, 18px);
+      }
+      .reveal .fragment.fade-up.visible {
+        transform: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ═══════ ICON LIBRARY (one consistent line-icon style) ═══════ -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-chat" viewBox="0 0 24 24">
+          <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z" />
+          <circle cx="8.5" cy="11.5" r=".6" /><circle cx="12.5" cy="11.5" r=".6" /><circle cx="16.5" cy="11.5" r=".6" />
+        </symbol>
+        <symbol id="i-hand" viewBox="0 0 24 24">
+          <path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8" />
+          <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.9-6-2.3l-3.6-3.6a2 2 0 0 1 2.8-2.8L7 15" />
+        </symbol>
+        <symbol id="i-consult" viewBox="0 0 24 24">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          <path d="M9.5 8.2a2.5 2.5 0 0 1 4.9.8c0 1.7-2.4 2-2.4 3.3" /><path d="M12 14.6h.01" />
+        </symbol>
+        <symbol id="i-search" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="7.5" /><path d="M21 21l-4.6-4.6" />
+        </symbol>
+        <symbol id="i-code" viewBox="0 0 24 24">
+          <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
+        </symbol>
+        <symbol id="i-math" viewBox="0 0 24 24">
+          <path d="M18 7V4H6l6 8-6 8h12v-3" />
+        </symbol>
+        <symbol id="i-bulb" viewBox="0 0 24 24">
+          <path d="M9 18h6M10 22h4" /><path d="M12 2a7 7 0 0 0-4 12.7V16h8v-1.3A7 7 0 0 0 12 2z" />
+        </symbol>
+        <symbol id="i-zap" viewBox="0 0 24 24">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9z" />
+        </symbol>
+        <symbol id="i-users" viewBox="0 0 24 24">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" />
+          <path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8" />
+        </symbol>
+        <symbol id="i-user" viewBox="0 0 24 24">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" />
+        </symbol>
+        <symbol id="i-cycle" viewBox="0 0 24 24">
+          <path d="M23 4v6h-6M1 20v-6h6" />
+          <path d="M3.5 9a9 9 0 0 1 14.9-3.4L23 10M1 14l4.6 4.4A9 9 0 0 0 20.5 15" />
+        </symbol>
+        <symbol id="i-star" viewBox="0 0 24 24">
+          <path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z" />
+        </symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24">
+          <rect x="2" y="4" width="20" height="16" rx="2" /><path d="M22 6l-10 7L2 6" />
+        </symbol>
+        <symbol id="i-doc" viewBox="0 0 24 24">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
+        </symbol>
+        <symbol id="i-book" viewBox="0 0 24 24">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+        </symbol>
+        <symbol id="i-speaker" viewBox="0 0 24 24">
+          <rect x="6" y="2" width="12" height="20" rx="3" /><circle cx="12" cy="14" r="3.2" /><circle cx="12" cy="6.5" r=".9" />
+        </symbol>
+        <symbol id="i-check" viewBox="0 0 24 24">
+          <path d="M20 6L9 17l-5-5" />
+        </symbol>
+        <symbol id="i-x" viewBox="0 0 24 24">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </symbol>
+        <symbol id="i-cap" viewBox="0 0 24 24">
+          <path d="M22 9.5L12 4.5 2 9.5l10 5z" /><path d="M6 11.5v5c3 2.2 9 2.2 12 0v-5M22 9.5v5" />
+        </symbol>
+        <symbol id="i-megaphone" viewBox="0 0 24 24">
+          <path d="M3 10v4a1 1 0 0 0 1 1h3l6 4V5L7 9H4a1 1 0 0 0-1 1z" /><path d="M17 8.5a5 5 0 0 1 0 7M19.8 5.5a9 9 0 0 1 0 13" />
+        </symbol>
+        <symbol id="i-briefcase" viewBox="0 0 24 24">
+          <rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M2 13h20" />
+        </symbol>
+        <symbol id="i-chip" viewBox="0 0 24 24">
+          <rect x="4" y="4" width="16" height="16" rx="2" /><rect x="9" y="9" width="6" height="6" />
+          <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3" />
+        </symbol>
+        <symbol id="i-coin" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M15 9.2c-.5-.8-1.6-1.4-3-1.4-1.7 0-3 .9-3 2.1s1.3 1.7 3 2.1 3 .9 3 2.1-1.3 2.1-3 2.1c-1.4 0-2.5-.6-3-1.4M12 6v1.8M12 16.2V18" />
+        </symbol>
+        <symbol id="i-building" viewBox="0 0 24 24">
+          <path d="M3 21h18M5 21V10M19 21V10M9.7 21V10M14.3 21V10M2 10l10-6 10 6z" />
+        </symbol>
+        <symbol id="i-pen" viewBox="0 0 24 24">
+          <path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z" />
+        </symbol>
+        <symbol id="i-school" viewBox="0 0 24 24">
+          <path d="M3 21h18M5 21V11l7-5 7 5v10M9 21v-5h6v5M12 6V2l3 1.5L12 5" />
+        </symbol>
+        <symbol id="i-scale" viewBox="0 0 24 24">
+          <path d="M12 3v18M7 21h10M5 7h14M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z" />
+        </symbol>
+      </defs>
+    </svg>
+
+    <div class="reveal">
+      <div class="slides">
+        <!-- ═══════ SLIDE 1 — TITLE ═══════ -->
+        <section class="title-slide" data-background-color="#12284C">
+          <div class="frame">
+            <div class="row">
+              <div class="title-text">
+                <div>
+                  <h1>ChatGPT: One of the Greatest Innovations of the Last 5 Years</h1>
+                  <p class="subtitle">FSE 201 | Instructor: Dr. Artem Klykov</p>
+                </div>
+                <ul class="members">
+                  <li>Maxmudov Vosiqxoja</li>
+                  <li>Mashhurbek Abdullayev</li>
+                  <li>Abbosbek Abdumuminov</li>
+                  <li>Georgiy Shatskiy</li>
+                </ul>
+              </div>
+              <div class="title-img">
+                <img
+                  src="https://thumbs.dreamstime.com/b/d-teal-chat-bubble-icon-three-dots-three-dimensional-chat-bubble-icon-teal-resembling-shape-traditional-speech-383090335.jpg"
+                  alt="Teal chat bubble icon with three dots"
+                  referrerpolicy="no-referrer"
+                />
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            Good morning, Dr. Artem, and good morning, everyone. We are Vosiqxoja, Mashhurbek,
+            Abbosbek and Georgiy. Today we will talk about ChatGPT, one of the greatest innovations
+            of the last five years. [0:20]
+          </aside>
+        </section>
+
+        <!-- ═══════ SLIDE 2 — HOOK: HAVE YOU USED IT THIS WEEK? ═══════ -->
+        <section>
+          <div class="frame">
+            <div class="title-zone">
+              <div class="title-icon"><svg class="ico"><use href="#i-hand" /></svg></div>
+              <h2>Have you used it this week?</h2>
+            </div>
+            <div class="content-zone">
+              <div class="row">
+                <div class="hook-left">
+                  <p class="big-number">100,000,000</p>
+                  <p class="caption-1">weekly active users, November 2023</p>
+                  <p class="caption-2">less than a year after launch</p>
+                  <div class="img-card">
+                    <img
+                      src="https://www.shutterstock.com/image-illustration/stick-figure-businessman-giving-presentation-260nw-4213241631.jpg"
+                      alt="Stick figure giving a presentation"
+                      referrerpolicy="no-referrer"
+                    />
+                  </div>
+                </div>
+                <div class="hook-right">
+                  <h3>Today we will</h3>
+                  <ol>
+                    <li>Test ChatGPT as an innovation.</li>
+                    <li>See the context behind it.</li>
+                    <li>Meet winners and losers.</li>
+                    <li>Ask: who pushed it, top or bottom?</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+            <div class="cite-zone"><span class="cite">(Malik, 2023)</span></div>
+          </div>
+          <aside class="notes">
+            A quick question first. Who used ChatGPT this week? Hands up. Now go back to 2021. Could
+            you have done that? No. ChatGPT did not exist. And yet, less than a year after its
+            launch, over one hundred million people were using it every single week. That is a huge
+            number. But a big number alone does not make something an innovation. So today we are
+            going to answer one question: why is ChatGPT an innovation, and not just a clever
+            invention? We will test it, look at the context behind it, meet the winners and losers,
+            and ask who really pushed it forward: the top or the bottom. [1:05]
+          </aside>
+        </section>
+
+        <!-- ═══════ SLIDE 3 — WHAT IS CHATGPT? ═══════ -->
+        <section>
+          <div class="frame">
+            <div class="title-zone"><h2>What is ChatGPT?</h2></div>
+            <div class="content-zone">
+              <div class="row" style="align-items: flex-start">
+                <div style="flex: 1 1 50%">
+                  <div class="chips">
+                    <span class="chip"><b>G</b>enerative</span>
+                    <span class="chip"><b>P</b>re-trained</span>
+                    <span class="chip"><b>T</b>ransformer</span>
+                  </div>
+                  <ul>
+                    <li>Conversational AI assistant by OpenAI</li>
+                    <li>Built on a Large Language Model (LLM)</li>
+                    <li>Generates human-like text</li>
+                    <li>Used via website, app or API</li>
+                  </ul>
+                </div>
+                <div style="flex: 1 1 50%">
+                  <div class="grid-icons">
+                    <figure><div class="ico-badge"><svg class="ico"><use href="#i-chat" /></svg></div><figcaption>Chat</figcaption></figure>
+                    <figure><div class="ico-badge"><svg class="ico"><use href="#i-consult" /></svg></div><figcaption>Consult</figcaption></figure>
+                    <figure><div class="ico-badge"><svg class="ico"><use href="#i-search" /></svg></div><figcaption>Research</figcaption></figure>
+                    <figure><div class="ico-badge"><svg class="ico"><use href="#i-code" /></svg></div><figcaption>Code</figcaption></figure>
+                    <figure><div class="ico-badge"><svg class="ico"><use href="#i-math" /></svg></div><figcaption>Solve math</figcaption></figure>
+                    <figure><div class="ico-badge"><svg class="ico"><use href="#i-zap" /></svg></div><figcaption>Brainstorm</figcaption></figure>
+                  </div>
+                  <p style="font-size: var(--fs-min)">
+                    Used daily by <strong>students, developers, marketers, businessmen, writers.</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="cite-zone"></div>
+          </div>
+          <aside class="notes">
+            First, what is ChatGPT? GPT stands for Generative Pre-trained Transformer. It is a
+            conversational AI assistant from OpenAI, built on a Large Language Model that generates
+            human-like text. You can chat with it, get advice, research, write code, solve complex
+            math problems, or brainstorm. You reach it through a website, an app, or an API. And who
+            uses it? Students, developers, marketers, businessmen, writers and ordinary people,
+            every day. For many of them it has become irreplaceable. [0:40]
+          </aside>
+        </section>
+
+        <!-- ═══════ SLIDE 4 — WHAT COUNTS AS AN INNOVATION? ═══════ -->
+        <section>
+          <div class="frame">
+            <div class="title-zone"><h2>What counts as an innovation?</h2></div>
+            <div class="content-zone">
+              <!-- TODO: replace with the exact textbook definition from the instructor -->
+              <blockquote class="definition">
+                “A new or significantly changed way of doing things that alters people’s habits and
+                routines.”
+              </blockquote>
+              <div class="equation">
+                <div class="eq-item">
+                  <div class="eq-box"><svg class="ico"><use href="#i-bulb" /></svg>Invention (the idea)</div>
+                  <span class="eq-label">Test 1</span>
+                </div>
+                <div class="eq-op">+</div>
+                <div class="eq-item">
+                  <div class="eq-box"><svg class="ico"><use href="#i-users" /></svg>Wide adoption</div>
+                  <span class="eq-label">Test 2</span>
+                </div>
+                <div class="eq-op">+</div>
+                <div class="eq-item">
+                  <div class="eq-box"><svg class="ico"><use href="#i-cycle" /></svg>Changed routines</div>
+                  <span class="eq-label">Test 3</span>
+                </div>
+                <div class="eq-op">=</div>
+                <div class="eq-item">
+                  <div class="eq-box result"><svg class="ico"><use href="#i-star" /></svg>Innovation</div>
+                </div>
+              </div>
+            </div>
+            <div class="cite-zone"></div>
+          </div>
+          <aside class="notes">
+            So what do we mean by innovation? Our instructor gave us this definition: [READ THE
+            TEXTBOOK DEFINITION HERE]. In simple words, an innovation is a new or significantly
+            changed way of doing something, which people really adopt, and which changes their
+            habits and routines. An invention is only the idea. An innovation is the idea, plus
+            adoption, plus changed routines. That gives us three tests. Is it an invention? Is it
+            widely adopted? Does it change how people live and work? Let's test ChatGPT. [0:55]
+          </aside>
+        </section>
+
+        <!-- ═══════ SLIDE 5 — TEST 1: IS IT AN INVENTION? ═══════ -->
+        <section>
+          <div class="frame">
+            <div class="title-zone"><h2>Test 1: Is it an invention?</h2></div>
+            <div class="content-zone">
+              <p class="subhead">The Transformer, Google Research, 2017</p>
+              <div class="row" style="align-items: flex-start; gap: 36px">
+                <div class="t5-left">
+                  <table class="cmp-table">
+                    <thead>
+                      <tr>
+                        <th class="th-coral">Before: RNNs</th>
+                        <th class="th-teal">After: Transformer</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>Reads text word by word</td><td>Parallel processing on GPUs</td></tr>
+                      <tr><td>Slow, expensive training</td><td>Bigger, more complex, better models</td></tr>
+                      <tr><td>Struggles with long contexts</td><td>Self-attention weighs words against each other</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="t5-right">
+                  <div class="bands">
+                    <div class="band">
+                      <span class="band-title">Encode</span>
+                      <span class="pill">Text</span><span class="down">▼</span>
+                      <span class="pill">Tokens</span><span class="down">▼</span>
+                      <span class="pill">Vectors</span>
+                    </div>
+                    <span class="band-arrow">▶</span>
+                    <div class="band process">
+                      <span class="band-title">Process</span>
+                      <span class="pill">Self-attention + neural network</span>
+                    </div>
+                    <span class="band-arrow">▶</span>
+                    <div class="band">
+                      <span class="band-title">Decode</span>
+                      <span class="pill">Output vectors</span><span class="down">▼</span>
+                      <span class="pill">Tokens</span><span class="down">▼</span>
+                      <span class="pill">Words</span>
+                    </div>
+                  </div>
+                  <div class="paper-fig">
+                    <div class="img-card">
+                      <img
+                        src="https://substackcdn.com/image/fetch/$s_!xMer!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff4e5c7ab-2fa0-4927-81db-606a2e7bbd07_680x470.png"
+                        alt="Transformer architecture figure"
+                        referrerpolicy="no-referrer"
+                      />
+                    </div>
+                    <span class="cite">Adapted from Vaswani et al. (2017)</span>
+                  </div>
+                </div>
+              </div>
+              <p class="banner banner-navy t5-banner fragment fade-up">
+                Invention: <span class="teal" style="color: #7fe0c4">yes</span>. Innovation: not yet.
+              </p>
+            </div>
+            <div class="cite-zone"><span class="cite">(Vaswani et al., 2017)</span></div>
+          </div>
+          <aside class="notes">
+            Test one: is ChatGPT an invention? Let's go back to 2017. A Google Research team
+            published a paper called "Attention Is All You Need" and introduced the Transformer
+            (Vaswani et al., 2017). Before that, language models used RNNs, recurrent neural
+            networks. They read text word by word. So what was the problem? They were slow, very
+            expensive to train, and they struggled with long texts. What did the Transformer
+            change? It replaced recurrence with parallel processing on GPUs, so much bigger and
+            stronger models became possible. How does it work? Text becomes tokens, then vectors.
+            Self-attention weighs every word against the others. A neural network processes it, and
+            the output vectors are decoded back into words. [CLICK] So yes, it is an invention. But
+            in 2017 it was only an innovative idea. It was not yet an innovation. [1:10]
+          </aside>
+        </section>
+
+        <!-- ═══════ SLIDE 6 — FROM INVENTION TO INNOVATION ═══════ -->
+        <section>
+          <div class="frame">
+            <div class="title-zone"><h2>From invention to innovation</h2></div>
+            <div class="content-zone">
+              <div class="row">
+                <div class="t6-left">
+                  <p class="date-big">November 2022</p>
+                  <ul>
+                    <li>OpenAI releases ChatGPT</li>
+                    <li>Built on LLMs using the Transformer</li>
+                    <li>One change: decoder-only</li>
+                    <li>Zero learning curve, unlike Excel or Photoshop</li>
+                  </ul>
+                  <div class="icon-row">
+                    <figure><div class="ico-badge"><svg class="ico"><use href="#i-mail" /></svg></div><figcaption>Email</figcaption></figure>
+                    <figure><div class="ico-badge"><svg class="ico"><use href="#i-search" /></svg></div><figcaption>Search</figcaption></figure>
+                    <figure><div class="ico-badge"><svg class="ico"><use href="#i-doc" /></svg></div><figcaption>Reports</figcaption></figure>
+                    <figure><div class="ico-badge"><svg class="ico"><use href="#i-code" /></svg></div><figcaption>Code</figcaption></figure>
+                    <figure><div class="ico-badge"><svg class="ico"><use href="#i-book" /></svg></div><figcaption>Homework</figcaption></figure>
+                  </div>
+                </div>
+                <div class="t6-right">
+                  <div class="img-card">
+                    <img
+                      src="https://us1.discourse-cdn.com/openai1/original/4X/9/9/3/993f56f052f928e53ce8c7651acb55b2265742cf.png"
+                      alt="An empty ChatGPT chat window"
+                      referrerpolicy="no-referrer"
+                    />
+                  </div>
+                  <p class="img-caption">A chat window. That is all.</p>
+                </div>
+              </div>
+            </div>
+            <div class="cite-zone"></div>
+          </div>
+          <aside class="notes">
+            So what turned the idea into an innovation? In November 2022, OpenAI released ChatGPT.
+            It is built on large language models using the Transformer architecture, with a few
+            modifications, such as the decoder-only approach. And here is the key. Think about Excel
+            or Photoshop. You need time to learn them. ChatGPT? It is a simple chat window. A zero
+            learning curve. Yet it can help with an email, a report, a piece of code, or your
+            homework, instantly. Everyday problems suddenly became easier to solve. That is why
+            people noticed it. [0:45]
+          </aside>
+        </section>
+
+        <!-- ═══════ SLIDE 7 — NOT JUST ANOTHER CHATBOT ═══════ -->
+        <section>
+          <div class="frame">
+            <div class="title-zone"><h2>Not just another chatbot</h2></div>
+            <div class="content-zone">
+              <table class="cmp-table t7-table">
+                <thead>
+                  <tr>
+                    <th class="th-empty"></th>
+                    <th class="th-grey"><svg class="ico"><use href="#i-speaker" /></svg>Alexa and Siri</th>
+                    <th class="th-teal"><svg class="ico"><use href="#i-chat" /></svg>ChatGPT</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="row-label">Method</td>
+                    <td class="col-old">Intent recognition, decision trees, pattern matching</td>
+                    <td class="col-new">Understands nuance, tone and language, no if-else scripts</td>
+                  </tr>
+                  <tr>
+                    <td class="row-label">Off-script</td>
+                    <td class="col-old">“Sorry, I don’t understand.”</td>
+                    <td class="col-new">Answers without a script</td>
+                  </tr>
+                  <tr>
+                    <td class="row-label">Scope</td>
+                    <td class="col-old">One specific task</td>
+                    <td class="col-new">General-purpose tool</td>
+                  </tr>
+                  <tr>
+                    <td class="row-label">Output</td>
+                    <td class="col-old">Retrieves raw data</td>
+                    <td class="col-new"><strong>Generative:</strong> writes an original answer (pre-trained data plus RAG)</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="footnote">RAG = Retrieval-Augmented Generation</p>
+            </div>
+            <div class="cite-zone"><span class="cite">(Adamopoulou &amp; Moussiades, 2020)</span></div>
+          </div>
+          <aside class="notes">
+            But wait. Chatbots already existed. Alexa. Siri. Why was that not a revolution? Because
+            they were based on intent recognition, decision trees and pattern matching (Adamopoulou
+            &amp; Moussiades, 2020). Step outside the script, and you hear: "Sorry, I don't
+            understand." ChatGPT understands nuance, tone and language without any if-else scripts.
+            Old chatbots did one specific task. ChatGPT is a general-purpose tool. And it does not
+            just retrieve raw data. It is generative: it writes an original answer for your request,
+            based on its training and sometimes on retrieved data through RAG, Retrieval-Augmented
+            Generation. [0:50]
+          </aside>
+        </section>
+
+        <!-- ═══════ SLIDE 8 — TESTS 2 AND 3 ═══════ -->
+        <section>
+          <div class="frame">
+            <div class="title-zone"><h2>Tests 2 and 3: Adopted? Changed routines?</h2></div>
+            <div class="content-zone">
+              <div class="row" style="align-items: stretch; gap: 40px">
+                <div class="t8-left">
+                  <div class="half-title">
+                    <span class="tick"><svg class="ico"><use href="#i-check" /></svg></span>
+                    <h3 style="margin: 0">Widely adopted?</h3>
+                  </div>
+                  <p class="num-mid">100 million</p>
+                  <p class="caption">weekly active users, 6 November 2023</p>
+                  <div class="icon-row">
+                    <figure><div class="ico-badge"><svg class="ico"><use href="#i-cap" /></svg></div><figcaption>Students</figcaption></figure>
+                    <figure><div class="ico-badge"><svg class="ico"><use href="#i-code" /></svg></div><figcaption>Developers</figcaption></figure>
+                    <figure><div class="ico-badge"><svg class="ico"><use href="#i-megaphone" /></svg></div><figcaption>Marketers</figcaption></figure>
+                    <figure><div class="ico-badge"><svg class="ico"><use href="#i-briefcase" /></svg></div><figcaption>Managers</figcaption></figure>
+                    <figure><div class="ico-badge"><svg class="ico"><use href="#i-user" /></svg></div><figcaption>Everyday users</figcaption></figure>
+                  </div>
+                  <span class="cite">(Malik, 2023)</span>
+                </div>
+                <div class="divider-v"></div>
+                <div class="t8-right">
+                  <div class="half-title">
+                    <span class="tick"><svg class="ico"><use href="#i-check" /></svg></span>
+                    <h3 style="margin: 0">Changed routines?</h3>
+                  </div>
+                  <ul style="margin-top: 14px">
+                    <li class="fragment fade-up">Drafting emails</li>
+                    <li class="fragment fade-up">Searching the internet</li>
+                    <li class="fragment fade-up">Generating reports</li>
+                    <li class="fragment fade-up">Coding and homework</li>
+                  </ul>
+                </div>
+              </div>
+              <p class="banner banner-navy t8-strip">
+                Two more tests passed. But why 2022 and not 2012? <strong>Context.</strong>
+              </p>
+            </div>
+            <div class="cite-zone"></div>
+          </div>
+          <aside class="notes">
+            Test two: was it widely adopted? On the sixth of November 2023, ChatGPT passed one
+            hundred million weekly active users (Malik, 2023). Students, developers, marketers,
+            managers, ordinary users. Test three: did it change routines? People now use it to
+            [CLICK] draft emails, [CLICK] search the internet, [CLICK] generate reports, [CLICK]
+            write code and do homework. That is a changed routine. So both tests are passed. But a
+            question remains. Why did this happen in 2022 and not in 2012? The answer is context.
+            [0:45]
+          </aside>
+        </section>
+
+        <!-- ═══════ SLIDE 9 — CONTEXT: TECHNOLOGY AND ECONOMY ═══════ -->
+        <section>
+          <div class="frame">
+            <div class="title-zone"><h2>Context: technology and economy</h2></div>
+            <div class="content-zone">
+              <div class="t9-cards">
+                <div class="card">
+                  <div class="card-head"><svg class="ico"><use href="#i-chip" /></svg>Technology</div>
+                  <ul>
+                    <li>Transformers (2017)</li>
+                    <li>The hidden potential of GPUs</li>
+                    <li>2012, ImageNet: Krizhevsky runs a neural network on two GTX 580 GPUs with CUDA</li>
+                    <li>AlexNet: <span class="badge">15.3%</span> top-5 error</li>
+                  </ul>
+                  <span class="cite card-cite">(Krizhevsky et al., 2012)</span>
+                </div>
+                <div class="card">
+                  <div class="card-head"><svg class="ico"><use href="#i-coin" /></svg>Economy</div>
+                  <ul>
+                    <li>2015: OpenAI starts as a non-profit, $1 billion from donors (Altman, Musk) <span class="cite">(OpenAI, 2015)</span></li>
+                    <li>2019: Microsoft adds $1 billion, mostly Azure credits</li>
+                    <li>2022–2023: reported $10 billion <span class="cite">(Bloomberg News, 2023)</span></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="timeline">
+                <div class="tl-item"><span class="tl-dot"></span><b>2012</b>AlexNet</div>
+                <div class="tl-item"><span class="tl-dot"></span><b>2015</b>OpenAI</div>
+                <div class="tl-item"><span class="tl-dot"></span><b>2017</b>Transformers</div>
+                <div class="tl-item"><span class="tl-dot"></span><b>2019</b>Microsoft</div>
+                <div class="tl-item hl"><span class="tl-dot"></span><b>2022</b>ChatGPT</div>
+                <div class="tl-item hl"><span class="tl-dot"></span><b>2023</b>100M users</div>
+              </div>
+            </div>
+            <div class="cite-zone"></div>
+          </div>
+          <aside class="notes">
+            There are four contextual factors. First, technology. Besides Transformers, there was
+            the hidden potential of GPUs. GPUs were always great at parallel work, but in 2012, at
+            the ImageNet challenge, Alex Krizhevsky used CUDA to run a neural network directly on
+            two GTX 580 GPUs. His project, AlexNet, reached a top-5 error rate of 15.3 percent. An
+            astonishing result (Krizhevsky et al., 2012). Second, economy. OpenAI started in 2015 as
+            a non-profit, funded by donors like Sam Altman and Elon Musk with one billion dollars
+            (OpenAI, 2015). By 2019 that was not enough to train transformers. So Microsoft financed
+            the compute with another billion dollars, mostly in Azure credits. And around the viral
+            launch in 2022 and 2023, it was reported to invest ten times more (Bloomberg News,
+            2023). [1:00]
+          </aside>
+        </section>
+
+        <!-- ═══════ SLIDE 10 — CONTEXT: SOCIETY AND POLITICS ═══════ -->
+        <section>
+          <div class="frame">
+            <div class="title-zone"><h2>Context: society and politics</h2></div>
+            <div class="content-zone">
+              <div class="row" style="gap: 32px">
+                <div class="t10-col">
+                  <div class="col-head"><svg class="ico"><use href="#i-users" /></svg>Society and culture</div>
+                  <ul class="mark-list">
+                    <li><span class="dot-teal"></span><span>Employers see productivity gains</span></li>
+                    <li><span class="dot-teal"></span><span>ChatGPT and Codex endorsed, even required <span class="cite">(Shibu, 2025)</span></span></li>
+                    <li><span class="dot-teal"></span><span>Students use AI as coach, tutor, assistant <span class="cite">(Freeman, 2025)</span></span></li>
+                  </ul>
+                </div>
+                <div class="divider-v"></div>
+                <div class="t10-col">
+                  <div class="col-head"><svg class="ico"><use href="#i-building" /></svg>Politics and institutions</div>
+                  <ul class="mark-list">
+                    <li><span class="dot-teal"></span><span>Rules bring stability and a privacy-first approach</span></li>
+                    <li>
+                      <span class="lead">
+                        <svg class="ico ico-teal"><use href="#i-check" /></svg>
+                        <svg class="flag" viewBox="0 0 30 20" aria-label="Flag of Uzbekistan">
+                          <rect width="30" height="20" fill="#fff" />
+                          <rect width="30" height="6.3" fill="#0099b5" />
+                          <rect y="13.7" width="30" height="6.3" fill="#1eb53a" />
+                          <rect y="6.3" width="30" height=".55" fill="#ce1126" />
+                          <rect y="13.15" width="30" height=".55" fill="#ce1126" />
+                          <circle cx="5" cy="3.15" r="2.1" fill="#fff" />
+                          <circle cx="5.8" cy="3.15" r="1.8" fill="#0099b5" />
+                          <circle cx="9" cy="2" r=".35" fill="#fff" /><circle cx="10.5" cy="2" r=".35" fill="#fff" /><circle cx="12" cy="2" r=".35" fill="#fff" />
+                          <circle cx="9" cy="4.2" r=".35" fill="#fff" /><circle cx="10.5" cy="4.2" r=".35" fill="#fff" /><circle cx="12" cy="4.2" r=".35" fill="#fff" />
+                        </svg>
+                      </span>
+                      <span><strong>Uzbekistan:</strong> 2030 AI integration plan <span class="cite">(Kruger, 2025)</span></span>
+                    </li>
+                    <li>
+                      <span class="lead">
+                        <svg class="ico ico-coral"><use href="#i-x" /></svg>
+                        <svg class="flag" viewBox="0 0 3 2" aria-label="Flag of Italy">
+                          <rect width="1" height="2" fill="#009246" />
+                          <rect x="1" width="1" height="2" fill="#fff" />
+                          <rect x="2" width="1" height="2" fill="#ce2b37" />
+                        </svg>
+                      </span>
+                      <span><strong>Italy:</strong> temporary ban, lifted after OpenAI complied <span class="cite">(Al Jazeera, 2023)</span></span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="t10-img">
+                  <div class="img-card">
+                    <img
+                      src="https://cdn-uz.kursiv.media/wp-content/uploads/2024/10/25dd78bd15769ad47cee.jpg"
+                      alt="AI in Uzbekistan illustration"
+                      referrerpolicy="no-referrer"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cite-zone"></div>
+          </div>
+          <aside class="notes">
+            Third, social and cultural factors. Employers saw the productivity gains. So using
+            ChatGPT and Codex was not only endorsed, but sometimes required, especially in software
+            development (Shibu, 2025). Students found a personal coach, a private tutor and an
+            assistant (Freeman, 2025). Fourth, political and institutional factors. These were
+            controversial. Supportive frameworks, ethical guidelines and regulations bring stability
+            and a privacy-first approach. Uzbekistan, for example, strongly supports AI with its
+            2030 integration plan (Kruger, 2025). But Italy temporarily banned ChatGPT (Al Jazeera,
+            2023). OpenAI responded with understanding, took the required measures, and the ban was
+            removed. [0:50]
+          </aside>
+        </section>
+
+        <!-- ═══════ SLIDE 11 — WHO ARE THE STAKEHOLDERS? ═══════ -->
+        <section>
+          <div class="frame">
+            <div class="title-zone"><h2>Who are the stakeholders?</h2></div>
+            <div class="content-zone" style="justify-content: flex-start">
+              <div class="hub">
+                <svg class="spokes" viewBox="0 0 1164 540" preserveAspectRatio="none">
+                  <g stroke-width="4" stroke-linecap="round">
+                    <line x1="582" y1="290" x2="230" y2="62" stroke="#12284C" />
+                    <line x1="582" y1="290" x2="934" y2="62" stroke="#12284C" />
+                    <line x1="582" y1="290" x2="582" y2="48" stroke="#10A37F" />
+                    <line x1="582" y1="290" x2="175" y2="290" stroke="#6B84A3" />
+                    <line x1="582" y1="290" x2="989" y2="290" stroke="#6B84A3" />
+                    <line x1="582" y1="290" x2="290" y2="490" stroke="#6B84A3" />
+                    <line x1="582" y1="290" x2="874" y2="490" stroke="#6B84A3" />
+                  </g>
+                </svg>
+                <div class="hub-center"><svg class="ico"><use href="#i-chat" /></svg>ChatGPT</div>
+
+                <div class="node make" style="left: 230px; top: 62px"><b>OpenAI</b><span>researchers and founders</span></div>
+                <div class="node fund" style="left: 582px; top: 48px"><b>Microsoft</b><span>most prominent investor</span></div>
+                <div class="node make" style="left: 934px; top: 62px"><b>Google researchers</b><span>invented Transformers</span></div>
+                <div class="node decide" style="left: 175px; top: 290px; width: 300px"><b>Governments</b><span>set regulations</span></div>
+                <div class="node decide" style="left: 989px; top: 290px; width: 300px"><b>Users</b><span>choose to use it or not</span></div>
+                <div class="node decide" style="left: 290px; top: 490px; width: 360px"><b>Schools and universities</b><span>allowed or not</span></div>
+                <div class="node decide" style="left: 874px; top: 490px"><b>Employers</b><span>used at work or not</span></div>
+              </div>
+            </div>
+            <div class="cite-zone">
+              <div class="legend">
+                <span><i style="background: #12284c"></i>Make it</span>
+                <span><i style="background: #10a37f"></i>Fund it</span>
+                <span><i style="background: #6b84a3"></i>Decide about it</span>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            So who are the stakeholders? The innovators: OpenAI's researchers and founders, and the
+            Google researchers who developed Transformers. The investor: Microsoft, the most
+            prominent one. Then those who decide. Governments create regulations. Schools and
+            universities decide whether students may use it. Employers decide whether employees use
+            AI at work. And finally, the users themselves. They choose whether to use it at all.
+            [0:35]
+          </aside>
+        </section>
+
+        <!-- ═══════ SLIDE 12 — WINNERS AND LOSERS ═══════ -->
+        <section>
+          <div class="frame">
+            <div class="title-zone"><h2>Winners and losers</h2></div>
+            <div class="content-zone">
+              <div class="row" style="gap: 40px; align-items: flex-start">
+                <div class="wl-col">
+                  <div class="wl-head win">Who benefits</div>
+                  <ul class="wl-list win">
+                    <li><span class="ico-badge"><svg class="ico"><use href="#i-cap" /></svg></span><span><strong>Students:</strong> help with studies</span></li>
+                    <li><span class="ico-badge"><svg class="ico"><use href="#i-code" /></svg></span><span><strong>Developers:</strong> more productive coding</span></li>
+                    <li><span class="ico-badge"><svg class="ico"><use href="#i-book" /></svg></span><span><strong>Teachers:</strong> content for lessons</span></li>
+                    <li><span class="ico-badge"><svg class="ico"><use href="#i-megaphone" /></svg></span><span><strong>Marketers and copywriters:</strong> creative content</span></li>
+                  </ul>
+                </div>
+                <div class="wl-col">
+                  <div class="wl-head lose">Who loses</div>
+                  <ul class="wl-list lose">
+                    <li><span class="ico-badge"><svg class="ico"><use href="#i-briefcase" /></svg></span><span><strong>Junior and entry-level jobs:</strong> higher standards, AI does it faster <span class="cite">(Brynjolfsson et al., 2025)</span></span></li>
+                    <li><span class="ico-badge"><svg class="ico"><use href="#i-pen" /></svg></span><span><strong>Creative writers and copywriters:</strong> same reason <span class="cite">(Hui et al., 2024)</span></span></li>
+                    <li><span class="ico-badge"><svg class="ico"><use href="#i-school" /></svg></span><span><strong>Schools:</strong> cheating lowers education quality <span class="cite">(Cotton et al., 2024)</span></span></li>
+                  </ul>
+                </div>
+              </div>
+              <p class="banner wl-banner">The group that loses is not smaller.</p>
+            </div>
+            <div class="cite-zone"></div>
+          </div>
+          <aside class="notes">
+            So who wins, and who loses? Winners: students, developers, teachers, marketers,
+            copywriters. But the group that loses is not smaller. Junior and entry-level jobs,
+            mostly in software development. Standards rise, and employers prefer AI that does the
+            same job in much less time (Brynjolfsson et al., 2025). Creative writers and copywriters
+            are affected for the same reason (Hui et al., 2024). And schools, because students use
+            AI to cheat on exams and assignments, which lowers the quality of education (Cotton et
+            al., 2024). [0:45]
+          </aside>
+        </section>
+
+        <!-- ═══════ SLIDE 13 — TOP-DOWN OR BOTTOM-UP? ═══════ -->
+        <section>
+          <div class="frame">
+            <div class="title-zone"><h2>Top-down or bottom-up?</h2></div>
+            <div class="content-zone">
+              <div class="td-wrap">
+                <div class="td-side">
+                  <div class="block-arrow down">Top-down</div>
+                  <div class="td-text">
+                    <h3>Top-down</h3>
+                    <ul>
+                      <li>Capital: OpenAI, Microsoft</li>
+                      <li>Cloud compute</li>
+                      <li>Google researchers</li>
+                      <li>Government regulation</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="td-mid">
+                  <svg class="ico"><use href="#i-scale" /></svg>A mix, top-down first.
+                </div>
+                <div class="td-side">
+                  <div class="td-text">
+                    <h3 class="teal">Bottom-up</h3>
+                    <ul>
+                      <li>100 million weekly users <span class="cite">(Malik, 2023)</span></li>
+                      <li>Users suggest ideas: “decentralized co-authors”</li>
+                      <li>Spread by word of mouth and social media</li>
+                      <li>People used AI before employers endorsed it <span class="cite">(Microsoft, 2024)</span></li>
+                    </ul>
+                  </div>
+                  <div class="block-arrow up">Bottom-up</div>
+                </div>
+              </div>
+            </div>
+            <div class="cite-zone"></div>
+          </div>
+          <aside class="notes">
+            Last question. Who pushed this innovation: the top or the bottom? The answer is both.
+            Top-down came first: capital and infrastructure from OpenAI and Microsoft, cloud
+            compute, the Google researchers, and government regulation. Then bottom-up. Millions of
+            everyday users, students, educators, marketers, businessmen, reached one hundred million
+            a week (Malik, 2023). They suggest improvements, becoming decentralized co-authors, and
+            they spread it by word of mouth and social media. In fact, people started using AI
+            tools before their employers endorsed them (Microsoft, 2024). The initiative came from
+            people themselves. [0:45]
+          </aside>
+        </section>
+
+        <!-- ═══════ SLIDE 14 — OUR VERDICT ═══════ -->
+        <section>
+          <div class="frame">
+            <div class="title-zone"><h2>Our verdict</h2></div>
+            <div class="content-zone">
+              <div class="verdict-rows">
+                <div class="verdict-row fragment fade-up">
+                  <span class="tick"><svg class="ico"><use href="#i-check" /></svg></span>
+                  <p><strong>Invention?</strong> Yes: the Transformer.</p>
+                </div>
+                <div class="verdict-row fragment fade-up">
+                  <span class="tick"><svg class="ico"><use href="#i-check" /></svg></span>
+                  <p><strong>Widely adopted?</strong> Yes: 100 million weekly users <span class="cite">(Malik, 2023)</span></p>
+                </div>
+                <div class="verdict-row fragment fade-up">
+                  <span class="tick"><svg class="ico"><use href="#i-check" /></svg></span>
+                  <p><strong>Changed habits?</strong> Yes: across professions and everyday life.</p>
+                </div>
+              </div>
+              <div class="fragment fade-up">
+                <p class="banner banner-navy verdict-banner">Therefore: ChatGPT is an innovation.</p>
+                <p class="verdict-note">
+                  Costs: pressure on junior jobs, cheating in education.
+                  <span>Used appropriately, it is a useful, productive tool.</span>
+                </p>
+              </div>
+            </div>
+            <div class="cite-zone"></div>
+          </div>
+          <aside class="notes">
+            So, back to our three tests. [CLICK] Is ChatGPT an invention? Yes: the Transformer.
+            [CLICK] Is it widely adopted? Yes: one hundred million weekly users (Malik, 2023).
+            [CLICK] Did it change habits and practices? Yes: across professions and everyday life.
+            [CLICK] Therefore, by our definition, ChatGPT is an innovation. It has negative effects:
+            higher expectations for junior employees, and cheating in education. But used
+            appropriately, it is a useful and productive tool. [0:35]
+          </aside>
+        </section>
+
+        <!-- ═══════ SLIDE 15 — QUESTIONS? ═══════ -->
+        <section class="q-slide">
+          <div class="frame">
+            <div class="title-zone"></div>
+            <div class="content-zone">
+              <div class="img-card">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBoWHs1zikXZGFVkdNPEtDVaa21V16PJs7xKzCmsyQuQ&s=10"
+                  alt="Question mark icon"
+                  referrerpolicy="no-referrer"
+                />
+              </div>
+              <h2>Questions?</h2>
+            </div>
+            <div class="cite-zone"></div>
+          </div>
+          <aside class="notes">
+            Thank you. We would be happy to answer your questions. [0:15 + Q&amp;A]
+            Likely questions — Is ChatGPT really different from Siri? Yes: it is generative and
+            general-purpose, not scripted and single-task. Why not call it only an invention? An
+            invention is the idea (2017). It became an innovation through adoption and changed
+            routines. Will it take jobs? Junior and entry-level roles are under pressure
+            (Brynjolfsson et al., 2025). Is it harmful in education? Cheating lowers quality
+            (Cotton et al., 2024), but used appropriately it is a useful tool.
+          </aside>
+        </section>
+
+        <!-- ═══════ SLIDE 16 — SUMMARY AND THANK YOU ═══════ -->
+        <section>
+          <div class="frame">
+            <div class="title-zone"><h2>Summary</h2></div>
+            <div class="content-zone">
+              <div class="row">
+                <div class="sum-left">
+                  <ul class="sum-list">
+                    <li><b>The idea:</b> the Transformer</li>
+                    <li><b>The ground:</b> GPUs, money, society, policy</li>
+                    <li><b>The spread:</b> the people</li>
+                  </ul>
+                </div>
+                <div class="sum-right path">
+                  <svg viewBox="-40 0 600 260" aria-label="Path from 2012 AlexNet to 2022 ChatGPT">
+                    <path d="M40 200 C 160 200, 200 70, 300 110 S 430 60, 480 60" fill="none" stroke="#10A37F" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 14" />
+                    <circle cx="40" cy="200" r="18" fill="#fff" stroke="#12284C" stroke-width="6" />
+                    <circle cx="480" cy="60" r="18" fill="#10A37F" />
+                    <text x="40" y="250" text-anchor="middle" font-size="28" font-weight="700" fill="#12284C" font-family="Calibri, Carlito, sans-serif">2012 AlexNet</text>
+                    <text x="480" y="22" text-anchor="middle" font-size="28" font-weight="700" fill="#10A37F" font-family="Calibri, Carlito, sans-serif">2022 ChatGPT</text>
+                  </svg>
+                </div>
+              </div>
+              <p class="thanks">Thank you for your time and attention!</p>
+            </div>
+            <div class="cite-zone"></div>
+          </div>
+          <aside class="notes">
+            To sum up. The Transformer was the idea. GPUs, money, society and policy prepared the
+            ground. And people made it spread. Next time you open that simple chat window,
+            remember: it took a journey from AlexNet in 2012 to ChatGPT in 2022 to get there. Thank
+            you for your time and attention, Dr. Artem, and thank you all for listening. [0:35]
+          </aside>
+        </section>
+
+        <!-- ═══════ SLIDE 17 — REFERENCES ═══════ -->
+        <section>
+          <div class="frame">
+            <div class="title-zone"><h2>References</h2></div>
+            <div class="content-zone" style="justify-content: flex-start; padding-top: 14px">
+              <div class="refs">
+                <p>Adamopoulou, E., &amp; Moussiades, L. (2020). Chatbots: History, technology, and applications. <em>Machine Learning with Applications, 2</em>, Article 100006. <a href="https://doi.org/10.1016/j.mlwa.2020.100006">https://doi.org/10.1016/j.mlwa.2020.100006</a></p>
+                <p>Al Jazeera. (2023, April 28). <em>ChatGPT available to users in Italy a month after temporary ban</em>. <a href="https://www.aljazeera.com/news/2023/4/28/chatgpt-available-to-users-in-italy-a-month-after-temporary-ban">https://www.aljazeera.com/news/2023/4/28/chatgpt-available-to-users-in-italy-a-month-after-temporary-ban</a></p>
+                <p>Bloomberg News. (2023, January 23). Microsoft makes $10b investment to OpenAI. <a href="https://www.datacenterknowledge.com/hyperscalers/microsoft-makes-10b-investment-in-openai">https://www.datacenterknowledge.com/hyperscalers/microsoft-makes-10b-investment-in-openai</a></p>
+                <p>Brynjolfsson, E., Chandar, B., &amp; Chen, R. (2025). <em>Canaries in the coal mine? Six facts about the recent employment effects of artificial intelligence</em> [Working paper]. Stanford Digital Economy Lab. <a href="https://digitaleconomy.stanford.edu/app/uploads/2025/11/CanariesintheCoalMine_Nov25.pdf">https://digitaleconomy.stanford.edu/app/uploads/2025/11/CanariesintheCoalMine_Nov25.pdf</a></p>
+                <p>Cotton, D. R. E., Cotton, P. A., &amp; Shipway, J. R. (2024). Chatting and cheating: Ensuring academic integrity in the era of ChatGPT. <em>Innovations in Education and Teaching International, 61</em>(2), 228–239.</p>
+                <p>Freeman, J. (2025). <em>Student generative AI survey 2025</em>. Higher Education Policy Institute. <a href="https://www.hepi.ac.uk/2025/02/26/student-generative-ai-survey-2025/">https://www.hepi.ac.uk/2025/02/26/student-generative-ai-survey-2025/</a></p>
+                <p>Hui, X., Reshef, O., &amp; Zhou, L. (2024). The short-term effects of generative artificial intelligence on employment: Evidence from an online labor market. <em>Organization Science</em>.</p>
+                <p>Krizhevsky, A., Sutskever, I., &amp; Hinton, G. E. (2012). ImageNet classification with deep convolutional neural networks. <em>Advances in Neural Information Processing Systems, 25</em>. <a href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks">https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks</a></p>
+                <p>Kruger, T. (2025, January 17). ChatGPT: Fourth most visited website in Uzbekistan. <a href="https://daryo.uz/en/2025/01/17/chatgpt-fourth-most-visited-website-in-uzbekistan-1208057/">https://daryo.uz/en/2025/01/17/chatgpt-fourth-most-visited-website-in-uzbekistan-1208057/</a></p>
+                <p>Malik, A. (2023, November 6). <em>OpenAI’s ChatGPT now has 100 million weekly active users</em>. TechCrunch. <a href="https://techcrunch.com/2023/11/06/openais-chatgpt-now-has-100-million-weekly-active-users/">https://techcrunch.com/2023/11/06/openais-chatgpt-now-has-100-million-weekly-active-users/</a></p>
+                <p>Microsoft. (2024, May 8). <em>Microsoft and LinkedIn release the 2024 Work Trend Index on the state of AI at work</em>. Microsoft News. <a href="https://news.microsoft.com/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/">https://news.microsoft.com/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/</a></p>
+                <p>OpenAI. (2015, December 11). <em>Introducing OpenAI</em>. <a href="https://openai.com/index/introducing-openai/">https://openai.com/index/introducing-openai/</a></p>
+                <p>Shibu, S. (2025, August 22). <em>Coinbase’s CEO fired software engineers who didn’t adopt AI tools: ‘We’re leaning as hard as we can into AI’</em>. Entrepreneur. <a href="https://us.entrepreneur.com/business-news/coinbase-ceo-fired-software-engineers-who-didnt-adopt-ai/496250">https://us.entrepreneur.com/business-news/coinbase-ceo-fired-software-engineers-who-didnt-adopt-ai/496250</a></p>
+                <p>Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., &amp; Polosukhin, I. (2017). Attention is all you need. <em>Advances in Neural Information Processing Systems, 30</em>. <a href="https://proceedings.neurips.cc/paper/7181-attention-is-all">https://proceedings.neurips.cc/paper/7181-attention-is-all</a></p>
+              </div>
+            </div>
+            <div class="cite-zone"></div>
+          </div>
+          <aside class="notes">Stays on screen while you leave; nobody speaks.</aside>
+        </section>
+      </div>
+    </div>
+
+    <!-- ═══════ Reveal.js Core JS + Notes plugin ═══════ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.min.js"></script>
+    <script>
+      Reveal.initialize({
+        width: 1280, // 16:9
+        height: 720,
+        margin: 0,
+        minScale: 0.2,
+        maxScale: 2.0,
+        center: false, // fixed title zone on every slide
+        hash: true,
+        transition: "fade",
+        transitionSpeed: "fast",
+        backgroundTransition: "fade",
+        controls: true,
+        controlsLayout: "edges",
+        controlsBackArrows: "faded",
+        controlsTutorial: false,
+        progress: false, // footer = slide number only
+        slideNumber: "c",
+        plugins: [RevealNotes],
+      });
+    </script>
+  </body>
+</html>
